@@ -92,6 +92,7 @@
   "desktop": "ESCRITORIO",
   "desktop2": "ESCRITORIO",
   "desktop3": "ESCRITORIO",
+  "web": "WEB",
 
   "qrtrol_description": "Web de control horario con roles de gerente y empleado, fichaje QR, gestión de personal e informes exportables en PDF y Excel.",
   "a2fisioterapia_description": "Sitio web profesional para servicios de fisioterapia y contacto directo con pacientes.",
