@@ -144,6 +144,27 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("[data-i18n='desktop']").textContent = translations.desktop;
     document.querySelector("[data-i18n='desktop2']").textContent = translations.desktop;
     document.querySelector("[data-i18n='desktop3']").textContent = translations.desktop;
+    document.querySelector("[data-i18n='web']").textContent = translations.web;
+
+    // Portfolio project descriptions
+    const portfolioElements = {
+      'qrtrol_description': translations.qrtrol_description,
+      'a2fisioterapia_description': translations.a2fisioterapia_description,
+      'micontrolhorario_description': translations.micontrolhorario_description,
+      'afalbolanos_description': translations.afalbolanos_description,
+      'esitravel_description': translations.esitravel_description,
+      'gsi_finanzas_description': translations.gsi_finanzas_description,
+      'signalScan_description': translations.signalScan_description,
+      'ipokemon_description': translations.ipokemon_description,
+      'pokemon_description': translations.pokemon_description
+    };
+
+    Object.keys(portfolioElements).forEach(key => {
+      const element = document.querySelector(`[data-i18n='${key}']`);
+      if (element) {
+        element.textContent = portfolioElements[key];
+      }
+    });
 
     //// ---------- CONTACT ---------- 
 
