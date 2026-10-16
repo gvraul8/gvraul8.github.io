@@ -40,9 +40,16 @@ function mostrarDetalles(tituloKey, imagenes, githubLink) {
   });
 
   const githubLinkElement = document.getElementById("github-link");
-  const isGithubLink = githubLink.includes("github.com");
-  githubLinkElement.href = githubLink;
-  githubLinkElement.innerHTML = `${isGithubLink ? t.githubLink : t.webLink} <i class="${isGithubLink ? "bi bi-github" : "bi bi-globe"}"></i>`;
+  const hasLink = githubLink && githubLink !== "#";
+  if (!hasLink) {
+    githubLinkElement.style.display = "none";
+    githubLinkElement.removeAttribute("href");
+  } else {
+    const isGithubLink = githubLink.includes("github.com");
+    githubLinkElement.style.display = "";
+    githubLinkElement.href = githubLink;
+    githubLinkElement.innerHTML = `${isGithubLink ? t.githubLink : t.webLink} <i class="${isGithubLink ? "bi bi-github" : "bi bi-globe"}"></i>`;
+  }
 
   new Swiper(".portfolio-details-slider", {
     slidesPerView: 1,
@@ -121,11 +128,11 @@ const proyectos = {
   },
   micontrolhorario: {
     imagenes: [
-      "assets/img/portfolio/micontrolhorario.png",
-      "assets/img/portfolio/micontrolhorario1.png",
-      "assets/img/portfolio/micontrolhorario2.png",
+      "assets/img/portfolio/micontrolhorario.png?v=2",
+      "assets/img/portfolio/micontrolhorario1.png?v=2",
+      "assets/img/portfolio/micontrolhorario2.png?v=2",
     ],
-    githubLink: "#",
+    githubLink: "https://micontrolhorario.gvraul.com/",
   },
 };
 
@@ -208,11 +215,12 @@ const traducciones = {
       },
       micontrolhorario: {
         titulo: "MiControlHorario",
-        descripcion: "Aplicación Android para jornadas con distintos tipos de trabajo, donde cada fichaje se registra para control y cálculo de coste. También genera informes mensuales en PDF.",
+        descripcion: "Web de control horario pensada para el teléfono, para usarla desde iPhone y Android. Incluye calendario mensual, trabajos con precio por hora y un informe en PDF.",
         detalles: [
-          "Registro de turnos con distintos tipos de trabajo y valoración diferenciada.",
-          "Control de fichajes de entrada y salida con tipo de trabajo asociado por jornada.",
-          "Generación de informes mensuales en PDF para seguimiento y facturación." 
+          "Calendario mensual con resumen de horas e ingresos.",
+          "Trabajos con nombre y precio por hora.",
+          "Estadísticas por semana, mes, día o trabajo, en horas o en dinero.",
+          "Informe del mes en PDF."
         ],
       },
     },
@@ -295,11 +303,12 @@ const traducciones = {
       },
       micontrolhorario: {
         titulo: "MiControlHorario",
-        descripcion: "Android app for schedules with multiple work types, where each record is tracked for control and cost calculation. It also generates monthly PDF reports.",
+        descripcion: "Time-tracking web app designed for the phone, so it works on iPhone and Android. It includes a monthly calendar, jobs with hourly rates and a PDF report.",
         detalles: [
-          "Shift registration with different work types and differentiated pricing.",
-          "Check-in/check-out tracking with the work type recorded for each shift.",
-          "Monthly PDF report generation for tracking and billing." 
+          "Monthly calendar with an hours and income summary.",
+          "Jobs with a name and an hourly rate.",
+          "Statistics by week, month, day or job, in hours or money.",
+          "Monthly PDF report."
         ],
       },
     },

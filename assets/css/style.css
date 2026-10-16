@@ -32,7 +32,7 @@
 .language-btn {
   background: transparent;
   border: none;
-  color: #45505b;
+  color: #fff;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -131,7 +131,7 @@ h6 {
 
 .arrow {
   font-size: 30px; /* Tamaño del icono */
-  color: #0563bb; /* Color del icono */
+  color: #fff;
   display: inline-block;
   margin: 0 5px;
   animation: bounce 2s infinite;
@@ -419,28 +419,52 @@ h6 {
   position: absolute;
   bottom: 0;
   top: 0;
+  background: rgba(17, 24, 39, 0.55);
+  position: absolute;
+  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
+}
+
+#hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 #hero h1 {
   margin: 0;
-  font-size: 64px;
+  font-size: 52px;
   font-weight: 700;
-  line-height: 56px;
-  color: #45505b;
+  line-height: 1.15;
+  color: #fff;
+  max-width: 12em;
 }
 
 #hero p {
-  color: #45505b;
+  color: rgba(255, 255, 255, 0.9);
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 
-#hero p span {
-  color: #0563bb;
-  letter-spacing: 1px;
+#hero .hero-role {
+  margin-top: 18px;
+  font-size: 22px;
+  color: #fff;
+}
+
+#hero .hero-role span {
+  color: #8ec5ff;
+  letter-spacing: 0;
+}
+
+#hero .hero-stack {
+  margin-top: 8px;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 #hero .social-links {
@@ -450,14 +474,14 @@ h6 {
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: #fff;
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
 
 #hero .social-links a:hover {
-  color: #0563bb;
+  color: #8ec5ff;
 }
 
 @media (max-width: 992px) {
@@ -465,19 +489,28 @@ h6 {
     text-align: center;
   }
 
+  #hero .container {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
   #hero h1 {
     font-size: 32px;
-    line-height: 36px;
+    line-height: 1.2;
+    max-width: none;
   }
 
-  #hero p {
+  #hero p,
+  #hero .hero-role {
     margin-top: 10px;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  #hero .hero-stack {
+    font-size: 14px;
   }
 }
-
-
 
 .download-button {
   display: inline-block;
@@ -598,8 +631,17 @@ section {
   justify-content: space-around;
 }
 
-.section {
-  width: 100%; 
+.skills .section-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills .section-container:nth-of-type(1) {
+  order: 2;
+}
+
+.skills .section-container:nth-of-type(2) {
+  order: 1;
   margin-bottom: 20px;
 }
 
@@ -639,7 +681,7 @@ section {
 
 .skills h3 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 22px;
   color: #45505b;
 }
 
@@ -651,13 +693,46 @@ section {
 }
 
 .skills .skills-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
   color: #45505b;
   text-align: left;
   margin-left: 20px;
+}
+
+.stack-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 40px;
+  margin: 0 0 28px;
+}
+
+.stack-main .image-container img {
+  width: 72px;
+  max-width: 72px;
+}
+
+.stack-main .content2 p {
+  font-weight: 600;
+  color: #111827;
+}
+
+.skills-other .image-container img {
+  width: 36px;
+  max-width: 36px;
+  opacity: 0.7;
+}
+
+.skills-other .content2 p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.skills-other > .skills-title {
+  margin-top: 4px;
 }
 
 /* ------------   IMAGEN Y GRAFICO    ----------- */
@@ -844,6 +919,12 @@ body {
   background-size: 100% 100%;
 }
 
+.formation .formation-item.ibm::before {
+  content: "";
+  background: #fff url("../img/logo_IBM.svg") center center no-repeat;
+  background-size: 86% auto;
+}
+
 
 #formation .link {
   color: #0563bb;
@@ -902,6 +983,9 @@ body {
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid #e6e8ee;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   min-height: 100%;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -912,13 +996,43 @@ body {
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
 
+.portfolio .portfolio-item {
+  display: flex;
+}
+
 .portfolio .portfolio-wrap img {
   width: 100%;
-  height: auto;
-  max-height: 280px;
+  height: 190px;
   object-fit: cover;
+  object-position: top;
   display: block;
   background: #f8fafc;
+  margin-top: auto;
+}
+
+.portfolio-badge {
+  display: inline-block;
+  margin: 16px 20px 0;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0563bb;
+  background: rgba(5, 99, 187, 0.1);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.portfolio-badge.badge-muted {
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+.portfolio-card-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 }
 
 .portfolio .portfolio-wrap h2 {
@@ -926,7 +1040,7 @@ body {
   color: #111827;
   font-weight: 700;
   text-align: left;
-  margin: 18px 20px 8px;
+  margin: 12px 20px 8px;
   line-height: 1.2;
 }
 
@@ -934,8 +1048,23 @@ body {
   font-size: 14px;
   color: #6b7280;
   text-align: left;
-  margin: 0 20px 20px;
-  min-height: 48px;
+  margin: 0 20px 8px;
+  min-height: 4.6em;
+}
+
+.portfolio-site {
+  position: relative;
+  z-index: 4;
+  display: inline-block;
+  margin: 0 20px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0563bb;
+  word-break: break-all;
+}
+
+.portfolio-site:hover {
+  color: #084a8a;
 }
 
 .portfolio .portfolio-wrap::before,
@@ -981,7 +1110,7 @@ body {
 }
 
 .portfolio .portfolio-wrap .portfolio-links {
-  display: flex;
+  pointer-events: none;
   justify-content: center;
   gap: 10px;
   margin-top: 12px;

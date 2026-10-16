@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("[data-i18n='contact_ico']").textContent = translations.contact_ico;
 
     document.querySelector("[data-i18n='hero_title']").textContent = translations.hero_title;
-    document.querySelector("[data-i18n='hero_description']").textContent = translations.hero_description;
+    document.querySelector("[data-i18n='hero_role']").textContent = translations.hero_role;
+    document.querySelector("[data-i18n='hero_stack']").textContent = translations.hero_stack;
     document.querySelector("[data-i18n='download_cv']").textContent = translations.download_cv;
     document.querySelector("[data-i18n='linkedin']").setAttribute("title", translations.linkedin);
     document.querySelector("[data-i18n='github']").setAttribute("title", translations.github);
@@ -52,10 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("[data-i18n='about_title']").textContent = translations.about_title;
     document.querySelector("[data-i18n='about_paragraph']").innerHTML = translations.about_paragraph;
     document.querySelector("[data-i18n='about_subtitle']").textContent = translations.about_subtitle;
-    document.querySelector("[data-i18n='about_description']").textContent = translations.about_description;
-    document.querySelector("[data-i18n='birthdate']").textContent = translations.birthdate;
+    document.querySelector("[data-i18n='about_description']").innerHTML = translations.about_description;
     document.querySelector("[data-i18n='city']").textContent = translations.city;
-    document.querySelector("[data-i18n='date']").textContent = translations.date;
     document.querySelector("[data-i18n='cityCR']").textContent = translations.cityCR;
     document.querySelector("[data-i18n='contact']").textContent = translations.contact;
     document.querySelector("[data-i18n='download_cv_2']").textContent = translations.download_cv;
@@ -63,15 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
     //// ---------- FORMACION ---------- 
 
     document.querySelector("[data-i18n='formation_title']").textContent = translations.formation_title;
-    document.querySelector("[data-i18n='formation_description']").textContent = translations.formation_description;
-
-    /// ----- ESTUDIOS
     document.querySelector("[data-i18n='formation']").textContent = translations.formation;
     document.querySelector("[data-i18n='degree_title']").textContent = translations.degree_title;
     document.querySelector("[data-i18n='degree_university']").textContent = translations.degree_university;
     document.querySelector("[data-i18n='degree_description']").innerHTML = translations.degree_description;
-    document.querySelector("[data-i18n='highschool_title']").textContent = translations.highschool_title;
-    document.querySelector("[data-i18n='highschool_modality']").textContent = translations.highschool_modality;
+    document.querySelector("[data-i18n='ibm_title']").textContent = translations.ibm_title;
+    document.querySelector("[data-i18n='ibm_date']").textContent = translations.ibm_date;
+    document.querySelector("[data-i18n='ibm_issuer']").textContent = translations.ibm_issuer;
+    document.querySelector("[data-i18n='ibm_description']").textContent = translations.ibm_description;
 
     /// ----- EXPERIENCIA LABORAL
     document.querySelector("[data-i18n='professional_experience']").textContent = translations.professional_experience;
@@ -97,10 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("[data-i18n='frontend_tech']").textContent = translations.frontend_tech;
     document.querySelector("[data-i18n='database_queries']").textContent = translations.database_queries;
 
-    /// ----- CERTIFICADOS
-    document.querySelector("[data-i18n='certificates_title']").textContent = translations.certificates_title;
-    document.querySelector("[data-i18n='english_level']").textContent = translations.english_level;
-
     /// ----- VOLUNTARIADO
     document.querySelector("[data-i18n='volunteering_title']").textContent = translations.volunteering_title;
     document.querySelector("[data-i18n='afal_date']").textContent = translations.afal_date;
@@ -109,21 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //// ---------- HABILIDADES ---------- 
     document.querySelector("[data-i18n='skills_title']").textContent = translations.skills_title;
-    document.querySelector("[data-i18n='skills_paragraph']").textContent = translations.skills_paragraph;
-
-    //// ---------- APTITUDES
-    document.querySelector("[data-i18n='aptitudes_title']").textContent = translations.aptitudes_title;
-    document.querySelector("[data-i18n='teamwork']").textContent = translations.teamwork;
-    document.querySelector("[data-i18n='learning']").textContent = translations.learning;
-    document.querySelector("[data-i18n='organization']").textContent = translations.organization;
-    document.querySelector("[data-i18n='leadership']").textContent = translations.leadership;
-    document.querySelector("[data-i18n='initiative']").textContent = translations.initiative;
-    document.querySelector("[data-i18n='proactivity']").textContent = translations.proactivity;
-    document.querySelector("[data-i18n='adaptability']").textContent = translations.adaptability;
-    document.querySelector("[data-i18n='communication']").textContent = translations.communication;
 
     //// ---------- CONOCIMIENTOS
-    document.querySelector("[data-i18n='knowledge_title']").textContent = translations.knowledge_title;
+    document.querySelector("[data-i18n='stack_main']").textContent = translations.stack_main;
+    document.querySelector("[data-i18n='stack_other']").textContent = translations.stack_other;
     document.querySelector("[data-i18n='programming_languages']").textContent = translations.programming_languages;
     document.querySelector("[data-i18n='web_technologies']").textContent = translations.web_technologies;
     document.querySelector("[data-i18n='databases']").textContent = translations.databases;
@@ -135,16 +118,24 @@ document.addEventListener("DOMContentLoaded", function () {
     //// ---------- PORTFOLIO ---------- 
 
     document.querySelector("[data-i18n='portfolio_title']").textContent = translations.portfolio_title;
-    document.querySelector("[data-i18n='portfolio_subtitle']").textContent = translations.portfolio_subtitle;
-    document.querySelector("[data-i18n='all']").textContent = translations.all;
-    document.querySelector("[data-i18n='web_development']").textContent = translations.web_development;
-    document.querySelector("[data-i18n='mobile_app']").textContent = translations.mobile_app;
-    document.querySelector("[data-i18n='mobile_app2']").textContent = translations.mobile_app;
-    document.querySelector("[data-i18n='mobile_app3']").textContent = translations.mobile_app;
-    document.querySelector("[data-i18n='desktop']").textContent = translations.desktop;
-    document.querySelector("[data-i18n='desktop2']").textContent = translations.desktop;
-    document.querySelector("[data-i18n='desktop3']").textContent = translations.desktop;
-    document.querySelector("[data-i18n='web']").textContent = translations.web;
+    ["all", "in_use", "web_development", "mobile_app", "desktop"].forEach(function (key) {
+      const el = document.querySelector("[data-i18n='" + key + "']");
+      if (el && translations[key]) el.textContent = translations[key];
+    });
+    document.querySelectorAll("[data-i18n='web']").forEach(function (el) {
+      el.textContent = translations.web;
+    });
+    document.querySelectorAll("[data-i18n='mobile_app2'], [data-i18n='mobile_app3']").forEach(function (el) {
+      el.textContent = translations.mobile_app;
+    });
+    document.querySelectorAll("[data-i18n='desktop2'], [data-i18n='desktop3']").forEach(function (el) {
+      el.textContent = translations.desktop;
+    });
+    ["badge_product", "badge_client", "badge_volunteer", "badge_university"].forEach(function (key) {
+      document.querySelectorAll("[data-i18n='" + key + "']").forEach(function (el) {
+        if (translations[key]) el.textContent = translations[key];
+      });
+    });
 
     // Portfolio project descriptions
     const portfolioElements = {
