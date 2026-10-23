@@ -248,7 +248,7 @@
    * Initiate portfolio details lightbox 
    */
   const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
+    selector: '.portfolio-card-hit',
     width: '90%',
     height: '90vh'
   });

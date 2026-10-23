@@ -104,9 +104,9 @@ const proyectos = {
   },
   a2fisioterapia: {
     imagenes: [
-      "assets/img/portfolio/a2fisioterapia.png",
-      "assets/img/portfolio/a2fisioterapia1.png",
-      "assets/img/portfolio/a2fisioterapia2.png",
+      "assets/img/portfolio/a2fisioterapia.png?v=3",
+      "assets/img/portfolio/a2fisioterapia1.png?v=4",
+      "assets/img/portfolio/a2fisioterapia2.png?v=3",
     ],
     githubLink: "https://a2fisioterapia.com/",
   },
